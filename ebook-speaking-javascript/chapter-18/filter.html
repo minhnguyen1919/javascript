@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [1, 4, 5, 7, 10, 15, 22, 25];
+		function fiveTime(num) {
+			return num % 5 === 0;
+		}
+
+		var outArr = arr.filter(fiveTime);
+
+		outArr.forEach(function(elem) {
+			console.log(elem + '  ');
+		});
+	</script>
+</body>
+</html>

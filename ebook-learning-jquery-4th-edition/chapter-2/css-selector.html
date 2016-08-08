@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <ul id="selected-plays">
+    <li>Comedies
+      <ul>
+        <li><a href="/asyoulikeit/">As You Like It</a></li>
+        <li>All's Well That Ends Well</li>
+        <li>A Midsummer Night's Dream</li>
+        <li>Twelfth Night</li>
+      </ul>
+    </li>
+    <li>Tragedies
+      <ul>
+        <li><a href="hamlet.pdf">Hamlet</a></li>
+        <li>Macbeth</li>
+        <li>Romeo and Juliet</li>
+      </ul>
+    </li>
+    <li>Histories
+      <ul>
+        <li>Henry IV (<a href="mailto:henryiv@king.co.uk">email</a>)
+          <ul>
+            <li>Part I</li>
+            <li>Part II</li>
+          </ul>
+        <li><a href="http://www.shakespeare.co.uk/henryv.htm">Henry V</a></li>
+        <li>Richard II</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    $(document).ready(function() {
+      $('#selected-plays > li').addClass('horizontal');
+      $('#selected-plays li:not(.horizontal)').addClass('sub-level');
+
+      $('a[href^="mailto:"]').addClass('mailto');
+      $('a[href$=".pdf"]').addClass('pdflink');
+      $('a[href^="http"][href*="henry"]').addClass('henrylink');.
+
+      // $('a').filter(function() {
+      //   return this.hostname && this.hostname != location.hostname;
+      // }).addClass('external');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/lodash.js"></script>
+</head>
+<body>
+  <script>
+    _([1, 2]).forEach(function(n) {
+      console.log(n);
+    }).value();
+    // → logs each value from left to right and returns the array
+
+    _.forEach({ 'a': 1, 'b': 2 }, function(n, key) {
+      console.log(n, key);
+    });
+    // → logs each value-key pair and returns the object (iteration order is not guaranteed)
+
+    _([1, 2]).forEachRight(function(n) {
+      console.log(n);
+    }).value();
+    // → logs each value from right to left and returns the array
+  </script>
+</body>
+</html>

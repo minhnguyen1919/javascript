@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+	<div id="switcher">
+		<div class="label">Text Size</div>
+		<button id="switcher-default">Default</button>
+		<button id="switcher-large">Bigger</button>
+		<button id="switcher-small">Smaller</button>
+	</div>
+	<div class="speech">
+		<p>Fourscore and seven years ago our fathers brought forth
+			on this continent a new nation, conceived in liberty,
+			and dedicated to the proposition that all men are created
+			equal.</p>
+			...
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				var $speech = $('div.speech');
+				var defaultSize = $speech.css('fontSize');
+
+				$('#switcher button').click(function() {
+					var num = parseFloat($speech.css('fontSize'));
+					switch(this.id){
+						case 'switcher-large':
+							num *= 1.4;
+							break;
+						case 'switcher-small':
+							num /= 1.4;
+							break;
+						default:
+							num = parseFloat(defaultSize);;
+					}
+
+					$speech.css('fontSize', num + 'px');
+				});
+			});
+		</script>
+	</body>
+	</html>

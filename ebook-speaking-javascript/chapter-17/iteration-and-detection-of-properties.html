@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // Iteration and Detection of Properties--------------------------------------
+  var obj = {name:'minh' , age: 25}
+  Object.getOwnPropertyNames(obj)
+  // =>   ["name", "age"]
+  Object.keys(obj)
+  // =>   ["name", "age"]
+
+  var obj2 = Object.create(obj, {gender: {value: 'male'}})
+  Object.keys(obj2)
+  // =>   []
+  Object.getOwnPropertyNames(obj2)
+  // =>   ["gender"]
+  obj2.height = 50
+  Object.keys(obj2)
+  // =>   ["height"]
+  Object.getOwnPropertyNames(obj2)
+  // =>   ["gender", "height"]
+
+
+
+
+  //Listing All Property Keys---------------------------------------------------
+  function getAllPropertyNames(obj) {
+    var result = [];
+    while (obj) {
+      // Add the own property names of `obj` to `result`
+      Array.prototype.push.apply(result, Object.getOwnPropertyNames(obj));
+      obj = Object.getPrototypeOf(obj);
+    }
+    return result;
+  }
+
+  console.log(getAllPropertyNames(obj2));
+
+
+
+
+  //Checking Whether a Property Exists------------------------------------------
+  'name' in obj;
+  // =>   true
+  'name' in obj2;
+  // =>   true
+
+  obj.hasOwnProperty('name');
+  // =>   true
+  obj2.hasOwnProperty('name');
+  // =>   false
+
+  // safe than obj.hasOwnProperty('name');
+  Object.prototype.hasOwnProperty.call(obj, 'name') // safe
+  // =>   true
+  Object.prototype.hasOwnProperty.call(obj2, 'name') // safe
+  // =>   false
+
+
+
+
+  //Example in ebook------------------------------------------------------------
+  var proto = Object.defineProperties({}, {
+    protoEnumTrue: { value: 1, enumerable: true },
+    protoEnumFalse: { value: 2, enumerable: false }
+  });
+  var obj = Object.create(proto, {
+    objEnumTrue: { value: 1, enumerable: true },
+    objEnumFalse: { value: 2, enumerable: false }
+  });
+
+  for(var x in obj) console.log(x);
+  // =>  objEnumTrue
+  // =>  protoEnumTrue
+
+
+
+
+  //Computing the number of own properties of an object-------------------------
+  Object.keys(obj).length
+  // =>  1
+
+
+
+
+  //Best Practices: Iterating over Own Properties-------------------------------
+  //Combine for-in with hasOwnProperty()
+
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      console.log(key);
+    }
+  }
+  // =>  objEnumTrue
+
+
+  //Combine Object.keys() or Object.getOwnPropertyNames() 
+  //with forEach() array iteration
+  var obj = { first: 'John', last: 'Doe' };
+  // Visit non-inherited enumerable keys
+  Object.keys(obj).forEach(function (key) {
+    console.log(key);
+  });
+  // =>  first
+  // =>  last
+
+
+</script>
+</body>
+</html>

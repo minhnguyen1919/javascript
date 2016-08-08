@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+  <h1 id="header1">Header 1</h1>
+  <a href="#" id="link1">click me 1</a>
+  <a href="#" id="link2">click me 2</a>
+  <a href="#" id="link3">click me 3</a>
+  <script>
+    $('#link1')
+    .on('click', function() { console.log('foo'); })
+    .trigger('click');
+    console.log('bar');
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/lodash.js"></script>
+</head>
+<body>
+  <script>
+    _.uniq([2, 1, 2]);
+    // → [2, 1]
+
+    // using `isSorted`
+    _.uniq([1, 1, 2], true);
+    // → [1, 2]
+
+    // using an iteratee function
+    _.uniq([1, 2.5, 1.5, 2], function(n) {
+      return this.floor(n);
+    }, Math);
+    // → [1, 2.5]
+
+    // using the `_.property` callback shorthand
+    _.uniq([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
+    // → [{ 'x': 1 }, { 'x': 2 }]
+  </script>
+</body>
+</html>

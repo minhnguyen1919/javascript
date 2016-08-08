@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body id="document">
+  <p id="indicator">0% complete</p>
+  <script>
+    var nanowrimoing = $.Deferred();
+    var wordGoal = 50;
+    nanowrimoing.progress(function(wordCount) {
+      var percentComplete = Math.floor(wordCount / wordGoal * 100);
+      $('#indicator').text(percentComplete + '% complete');
+    });
+    nanowrimoing.done(function(){
+      $('#indicator').text('Good job!');
+    });
+
+    $('#document').on('keypress', function(){
+      var wordCount = $(this).val().split(/\s+/).length;
+      if (wordCount >= wordGoal) {
+        nanowrimoing.resolve();
+      };
+      nanowrimoing.notify(wordCount);
+    });
+  </script>
+</body>
+</html>

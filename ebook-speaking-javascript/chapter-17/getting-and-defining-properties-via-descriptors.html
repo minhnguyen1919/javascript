@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+  //Object.defineProperty(obj, propKey, propDesc)-------------------------------
+  var obj = Object.defineProperty({}, 'foo', {
+    value: 123,
+    enumerable: true
+    // writable: false (default value)
+    // configurable: false (default value)
+  });
+
+  //Object.defineProperties(obj, propDescObj)-----------------------------------
+  var obj = Object.defineProperties({}, {
+    foo: { value: 123, enumerable: true },
+    bar: { value: 'abc', enumerable: true }
+  });
+
+
+  //Object.create(proto, propDescObj?)------------------------------------------
+  var obj = Object.create(Object.prototype, {
+    foo: { value: 123, enumerable: true },
+    bar: { value: 'abc', enumerable: true }
+  });
+
+
+  //Object.getOwnPropertyDescriptor(obj, propKey)
+  Object.getOwnPropertyDescriptor(obj, 'foo');
+  // ====>   Object {value: 123, writable: false, enumerable: true, configurable: false}
+
+
+  </script>
+</body>
+</html>

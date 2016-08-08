@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+</head>
+<body np-controller='OneController'>
+	<!-- <input type="text" ng-bind="bindHere" col="50">
+	<input type="text" col="50" value={{bindHere}}>
+	<p>{{bindHere}}</p> -->
+	<input type="text" ng-model="greeting" col="50" value={{greeting}}>
+	<input type="text" ng-model="greeting" col="50" value={{greeting}}>
+	<p>{{greeting}}</p>
+	<p ng-bind="greeting"></p>
+</body>
+</html>

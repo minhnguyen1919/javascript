@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+  var obj = {name: "Doe", age: 30, property: {height: 180, weight: 80}};
+  var obj2 = {name: "John", age: 35, property: {height: 177, weight: 77}};
+  var obj3 = {name: "Kevin", age: 34, property: {height: 185, weight: 85}};
+  var objs = {one: obj, two: obj2, three: obj3};
+  var arr = [obj, obj2, obj3];
+
+  function forEach(arrays, func){
+    for(var i=0; i<arrays.length; i++){
+        func(arrays[i]);
+    }
+  }
+
+  function log(value){
+    console.log(value);
+  }
+
+  forEach(arr, log);
+
+  </script>
+</head>
+<body>
+  <div id="father"></div>
+</body>
+</html>

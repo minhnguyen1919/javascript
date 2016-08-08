@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/lodash.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+  // Removes all provided values from array using SameValueZero for equality comparisons. 
+  var arr = [1, 2, 3, 4, 5, 6, 2, 3, 4, 5];
+  console.log(_.pull(arr , 3, 5));
+  console.log(arr);
+
+  var arrAt = [1, 2, 3, 4, 5, 6, 2, 3, 4, 5];
+  console.log(_.pullAt(arrAt , 3, 5));
+
+  // Use remove to split number and character
+  var arrRemove = [1, 'a', 2, 'b', 'c', 3, 4];
+  var arrRemoveResult = _.remove(arrRemove, function(item){
+    return isNaN(item);
+  });
+
+  console.log(arrRemove);
+  console.log(arrRemoveResult);
+
+  console.log(_.slice(arrRemove, 1,3));
+</script>
+</body>
+</html>

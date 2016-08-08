@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+</head>
+<body>
+	<form ng-controller="StartUpController">
+		Starting: <input ng-change="computeNeeded()" ng-model="startingEstimate">
+		Recommendation: {{needed}}
+	</form>
+	
+	<script>
+		function StartUpController($scope) {
+			$scope.startingEstimate = 0;
+			$scope.computeNeeded = function() {
+				$scope.needed = $scope.startingEstimate * 10;
+			};
+		}
+	</script>
+</body>
+</html>

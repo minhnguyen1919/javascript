@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+</head>
+<body>
+	<div  ng-controller="StudentListController">
+		<button ng-click="listToggle()">List Toggle</button>
+		<ul ng-show="isShow">
+			<li ng-repeat="student in students">
+				<a href="student/{{student.id}}">{{student.name}}</a>
+			</li>
+		</ul>
+	</div>
+	
+	<script>
+		var students = [{name:'Mary Contrary', id:'1'},
+		{name:'Jack Sprat', id:'2'},
+		{name:'Jill Hill', id:'3'}];
+
+		function StudentListController($scope) {
+			$scope.students = students;
+			$scope.isShow = false;
+
+			$scope.listToggle = function() {
+				$scope.isShow = !$scope.isShow;
+			}
+		}
+	</script>
+</body>
+</html>

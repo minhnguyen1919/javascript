@@ -1,0 +1,14 @@
+form.col-md-4(method="post")
+	div.form-group
+		label(for="userId") Id
+		input#userId.form-control(type="text" placeholder="UserId" disabled)
+	div.form-group
+		label(for="userName") Username
+		input#userName.form-control(type="text" placeholder="Username")
+	div.form-group
+		label(for="userAddress") Address
+		input#userAddress.form-control(type="text" placeholder="Address")
+	div.form-group
+		label(for="userEmail") Email
+		input#userEmail.form-control(type="text" placeholder="Email")
+	button#add-edit-user.btn.btn-default(type="submit") Add user

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/lodash.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    console.log(_.isString("abc"));
+    console.log(_.isString(123));
+
+    console.log(_.chunk(['a','b','c','d','e'],2));
+
+    console.log(_.difference([1, 2, 3, 4], [3, 5]));
+
+    console.log(_.drop([6, 7, 8, 9, 10], 2));
+
+    console.log(_.dropRight([6, 7, 8, 9, 10], 2));
+
+    console.log(_.dropRightWhile([6, 7, 8, 9, 10], function(n){
+      return n > 7;
+    }));
+
+    var users = [
+      { 'user': 'john',  'status': true },
+      { 'user': 'barney',  'active': true },
+      { 'user': 'fred',    'active': false },
+      { 'user': 'pebbles', 'active': false }
+    ];
+
+    // using the `_.matches` callback shorthand
+    _.pluck(_.dropRightWhile(users, { 'user': 'pebbles', 'active': false }), 'user');
+    // → ['barney', 'fred']
+
+    // using the `_.matchesProperty` callback shorthand
+    _.pluck(_.dropRightWhile(users, 'active', false), 'user');
+    // → ['barney']
+
+    // using the `_.property` callback shorthand
+    _.pluck(_.dropRightWhile(users, 'active'), 'user');
+    // → ['barney', 'fred', 'pebbles']
+
+    console.log("dropWhile - " + _.dropWhile([6, 7, 8, 9, 10], function(n){
+      return n < 7;
+    }));
+
+</script>
+</body>
+</html>

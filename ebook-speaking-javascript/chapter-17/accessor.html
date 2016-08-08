@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //Defining Accessors via an Object Literal------------------------------------
+  var obj = {
+    get foo() {
+      return 'getter';
+    },
+    set foo(value) {
+      console.log('setter: '+value);
+    }
+  };
+
+  obj.foo = 'bla';
+  // =>   setter: bla
+  obj.foo;
+  // =>   'getter'
+
+
+
+
+  //Defining Accessors via Property Descriptors---------------------------------
+  var obj = Object.create(
+    Object.prototype, { // object with property descriptors
+      foo: { // property descriptor
+        get: function () {
+          return 'getter';
+        },
+        set: function (value) {
+          console.log('setter: '+value);
+        }
+      }
+    }
+    );
+
+  obj.foo = 'abc';
+  // =>   setter: abc
+  obj.foo;
+  // =>   'getter'
+
+
+
+
+  //Accessors and Inheritance
+  var obj2 = Object.create(obj);
+  obj2.foo = 'def';
+  // =>   setter: def
+  obj2.foo;
+  // =>   'getter
+
+
+    </script>
+  </body>
+  </html>

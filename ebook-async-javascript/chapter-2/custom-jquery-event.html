@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+  <div id="bottle">
+    <span id="soda">click me</span>
+  </div>
+  <script>
+    $('#soda, #bottle').on('fizz', function() {
+    console.log(this.id + ' emitted fizz');
+    });
+
+    /*
+     *Bubling
+     *Whenever an element emits an event (such as a 'click' ), its parent then
+     *emits the event, then its grandparent, and so on, up to the root element,
+     *document —unless the event’s stopPropagation method is called at some point along
+     *the way.
+     */
+    $('#soda').trigger('fizz');
+
+    // ===> soda emitted fizz
+    // ===> bottle emitted fizz
+  </script>
+</body>
+</html>

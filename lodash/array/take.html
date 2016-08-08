@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/lodash.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+  _.take([1, 2, 3]);
+  // → [1]
+
+  _.take([1, 2, 3], 2);
+  // → [1, 2]
+
+  _.take([1, 2, 3], 5);
+  // → [1, 2, 3]
+
+  _.take([1, 2, 3], 0);
+  // → []
+
+
+  _.takeRightWhile([1, 2, 3], function(n) {
+    return n > 1;
+  });
+  // → [2, 3]
+
+  var users = [
+    { 'user': 'barney',  'active': true },
+    { 'user': 'fred',    'active': false },
+    { 'user': 'pebbles', 'active': false }
+  ];
+
+  // using the `_.matches` callback shorthand
+  _.pluck(_.takeRightWhile(users, { 'user': 'pebbles', 'active': false }), 'user');
+  // → ['pebbles']
+
+  // using the `_.matchesProperty` callback shorthand
+  _.pluck(_.takeRightWhile(users, 'active', false), 'user');
+  // → ['fred', 'pebbles']
+
+  // using the `_.property` callback shorthand
+  _.pluck(_.takeRightWhile(users, 'active'), 'user');
+  // → []
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<style type="text/css">
+  .container{
+    width: 880px;
+    margin: 0 auto;
+    padding: 10px;
+    border:1px solid green;
+
+    /*fix lỗi border không bọc được tất cả thẻ con do 
+    container chỉ chứa toàn thẻ float*/
+    overflow: auto;
+  }
+  .box{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    float: left;
+    margin: 10px;
+  }
+  .clearnone{
+    clear: none;
+  }
+  .clearleft{
+    clear: left;
+  }
+  .clearright{
+    clear: right;
+  }
+  .clearboth{
+    clear: both;
+  }
+
+</style>
+<script>
+  // var theNumber = Number(prompt("Input number",""));
+  // if(!isNaN(theNumber)){
+  //   alert("Number");
+  // }
+
+  var numbers = "";
+  var count = 0;
+  while(count < 100){
+    if(count % 5 ==0){
+      numbers += " " + count;
+    }
+    count++;
+  }
+  alert(numbers);
+</script>
+
+</head>
+<body>
+<div class="container">
+  <div class="box">
+    <h1>Header1</h1>
+    <h2>Header1</h2>
+  </div>
+  <div class="box">
+    <h1>Header2</h1>
+    <h2>Header2</h2>
+  </div>
+  <div class="box clearleft">
+    <h1>Header3</h1>
+    <h2>Header3</h2>
+  </div>
+  <div class="box">
+    <h1>Header4</h1>
+    <h2>Header4</h2>
+  </div>
+  <div class="box clearnone">
+    <h1>Header5</h1>
+    <h2>Header5</h2>
+  </div>
+  <div class="box ">
+    <h1>Header6</h1>
+    <h2>Header6</h2>
+  </div>
+  <div class="box">
+    <h1>Header7</h1>
+    <h2>Header7</h2>
+  </div>
+    <div class="box clearboth">
+    <h1>Header8</h1>
+    <h2>Header8</h2>
+  </div>
+    <div class="box">
+    <h1>Header9</h1>
+    <h2>Header9</h2>
+  </div>
+    <div class="box">
+    <h1>Header10</h1>
+    <h2>Header10</h2>
+  </div>
+    <div class="box">
+    <h1>Header11</h1>
+    <h2>Header11</h2>
+  </div>
+    <div class="box">
+    <h1>Header12</h1>
+    <h2>Header12</h2>
+  </div>
+</div>
+</body>
+</html>

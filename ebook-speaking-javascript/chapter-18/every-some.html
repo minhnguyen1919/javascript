@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	var arr = [2, 5, 4, 6, 7];
+	var arrEven = [2, 6, 4];
+
+	function isEven(num) {
+		return num % 2 === 0;
+	}
+
+	console.log(arr.some(isEven));
+
+	console.log(arr.every(isEven));
+
+	console.log(arrEven.every(isEven));
+
+
+	</script>
+</body>
+</html>

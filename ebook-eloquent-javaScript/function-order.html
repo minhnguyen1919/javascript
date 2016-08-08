@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <script>
+
+// The reduce Function
+function forEach(array, action) {
+  for (var i = 0; i < array.length; i++)
+    action(array[i]);
+}
+
+function reduce(combine, base, array) {
+  forEach(array, function (element) {
+    console.log(array);
+    console.log(element);
+    base = combine(base, element);
+  });
+  return base;
+}
+function add(a, b) {
+  return a + b;
+}
+function sum(numbers) {
+  return reduce(add, 0, numbers);
+}
+
+console.log(countZeroes([5,6,7,8]));
+
+
+function countZeroes(array) {
+function counter(total, element) {
+return total + (element === 0 ? 1 : 0);
+}
+return reduce(counter, 0, array);
+}
+
+
+
+
+
+</script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h1>Header1</h1>
+      <h2>Header1</h2>
+    </div>
+  </div>
+</body>
+</html>

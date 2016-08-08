@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    for (var i = 1; i <= 3; i++) {
+      setTimeout(function(){ 
+        console.log(i); 
+      }, 0);
+    };
+
+
+
+    var start = new Date;
+    try {
+      setTimeout(function(){
+        var end = new Date;
+        console.log(end);
+        console.log(start);
+        console.log('Time elapsed:', end - start, 'ms');
+
+        //we can’t catch errors thrown from async callbacks with a try/catch block
+        throw new Error("Can you catch me?");
+      }, 500);
+    } catch(e){
+      console.error(e);
+    }
+    while (new Date - start < 1000) {
+      console.log("1");
+    };
+
+    window.onerror = function(err) {
+      return true; // ignore all errors completely
+    };
+
+  </script>
+</body>
+</html>

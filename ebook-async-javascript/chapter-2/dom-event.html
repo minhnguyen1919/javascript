@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+  <h1 id="header1">Header 1</h1>
+  <a href="#" id="link1">click me 1</a>
+  <a href="#" id="link2">click me 2</a>
+  <a href="#" id="link3">click me 3</a>
+
+  <script>
+  var link1 =  document.getElementById('link1');
+  link1.onclick = function() {
+    console.log("click");
+  };
+
+  var header1 = document.getElementById('header1');
+  header1.onclick = function() {
+    clickHandler1.apply(this, ['1']);
+    clickHandler2.apply(this, ['2']);
+  };
+
+  function clickHandler1(){
+    if(arguments[0]){
+      console.log(arguments[0]);
+    }
+  }
+
+  function clickHandler2(){
+    if(arguments[0]){
+      console.log(arguments[0]);
+    }
+  }
+
+  /*
+   *Not only is this tedious, it’s also a recipe for bloated, all-purpose handler
+   *functions. That’s why the W3C added addEventListener to the DOM specification
+   *in 2000 and jQuery abstracted it with the bind method. bind makes it easy to
+   *add as many handlers as you like to any event on any element (or set of ele-
+   *ments), without worrying about stepping on anyone else’s toes.
+   */
+
+  var link2 = document.getElementById('link2');
+  $(link2)
+    .bind('click', clickHandler1)
+    .bind('click', clickHandler2);
+
+  var link3 = document.getElementById('link3');
+  link3.addEventListener("click", clickHandler1);
+
+
+
+
+
+
+  </script>
+</body>
+</html>

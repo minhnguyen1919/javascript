@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/lodash.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    console.log(_.fill([6, 7, 8, 9, 10], 'a', 2, 4));
+
+    var users = [
+    { 'user': 'barney',  'active': false },
+    { 'user': 'fred',    'active': false },
+    { 'user': 'pebbles', 'active': true }
+    ];
+
+    _.findIndex(users, function(chr) {
+      return chr.user == 'barney';
+    });
+    // → 0
+
+    // using the `_.matches` callback shorthand
+    _.findIndex(users, { 'user': 'fred', 'active': false });
+    // → 1
+
+    // using the `_.matchesProperty` callback shorthand
+    _.findIndex(users, 'active', false);
+    // → 0
+
+    // using the `_.property` callback shorthand
+    // is the same ass active: true
+    _.findIndex(users, 'active');
+    // → 2
+
+    console.log(_.findLastIndex(users, 'active'));
+    console.log(_.findLastIndex(users, 'active', false));
+    console.log(_.findLastIndex(users, {'active': false}));
+    console.log(_.findLastIndex(users, {'active': false, 'user': 'barney'}));
+
+</script>
+</body>
+</html>

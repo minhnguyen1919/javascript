@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		var arr = [1, 5, 8, 3, 2];
+
+		// with initialValue
+		console.log(arr.reduce(function(a, b, i) {
+			console.log('prev:' + a + ', cur:' + b + ', i:' + i);
+			return a + b;
+		}, 10));
+
+		// ===>  prev:10, cur:1, i:0
+		// ===>  prev:11, cur:5, i:1
+		// ===>  prev:16, cur:8, i:2
+		// ===>  prev:24, cur:3, i:3
+		// ===>  prev:27, cur:2, i:4
+		// ===>  29
+
+		// without initialValue
+		console.log(arr.reduce(function(a, b, i) {
+			console.log('prev:' + a + ', cur:' + b + ', i:' + i);
+			return a + b;
+		}));
+
+		// ===>  prev:1, cur:5, i:1
+		// ===>  prev:6, cur:8, i:2
+		// ===>  prev:14, cur:3, i:3
+		// ===>  prev:17, cur:2, i:4
+		// ===>  19
+
+	</script>
+</body>
+</html>

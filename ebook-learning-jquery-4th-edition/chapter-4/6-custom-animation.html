@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+	<div id="switcher">
+		<div class="label">Text Size</div>
+			<button id="switcher-default">Default</button>
+			<button id="switcher-large">Bigger</button>
+			<button id="switcher-small">Smaller</button>
+		</div>
+	<div class="speech">
+		<p>Fourscore and seven years ago our fathers brought forth
+			on this continent a new nation, conceived in liberty,
+			and dedicated to the proposition that all men are
+			created equal.
+		</p>
+		<p>Now we are engaged in a great civil war, testing whether
+			that nation, or any nation so conceived and so dedicated,
+			can long endure. We are met on a great battlefield of
+			that war. We have come to dedicate a portion of that
+			field as a final resting-place for those who here gave
+			their lives that the nation might live. It is altogether
+			fitting and proper that we should do this. But, in a
+			larger sense, we cannot dedicate, we cannot consecrate,
+			we cannot hallow, this ground.
+			lorem*100
+		</p>
+		<a href="#" class="more">read more</a>
+		...
+	</div>
+
+	<script>
+/*		$(document).ready(function() {
+			var $firstPara = $('p').eq(1);
+			// $firstPara.hide();
+			$('a.more').click(function(event) {
+				event.preventDefault();
+				$firstPara.animate({
+					color: 'red',
+					fontSize: '20px'
+				});
+
+				var $link = $(this);
+				if ($link.text() == 'read more') {
+					$link.text('read less');
+				} else {
+					$link.text('read more');
+				}
+			});
+
+});*/
+
+			$(document).ready(function() {
+				var $firstPara = $('p').eq(1);
+				$firstPara.hide();
+				$('a.more').click(function(event) {
+					event.preventDefault();
+					$firstPara.animate({
+						opacity: 'toggle',
+						height: 'toggle'
+					}, 'slow');
+					var $link = $(this);
+					if ($link.text() == 'read more') {
+						$link.text('read less');
+					} else {
+						$link.text('read more');
+					}
+				});
+			});
+
+			$(document).ready(function() {
+				var $speech = $('div.speech');
+				var defaultSize = $speech.css('fontSize');
+				$('#switcher button').click(function() {
+					var num = parseFloat($speech.css('fontSize'));
+					switch (this.id) {
+						case 'switcher-large':
+						num *= 1.4;
+						break;
+						case 'switcher-small':
+						num /= 1.4;
+						break;
+						default:
+						num = parseFloat(defaultSize);
+					}
+					$speech.animate({fontSize: num + 'px'}, 'slow');
+				});
+			});
+
+			$('div.label').click(function() {
+				var paraWidth = $('div.speech p').outerWidth();
+				var $switcher = $(this).parent();
+				var switcherWidth = $switcher.outerWidth();
+				$switcher.css({
+						position: 'relative'
+					})
+					.animate({
+					borderWidth: '5px',
+					left: paraWidth - switcherWidth,
+					height: '+=20px'
+				}, 'slow');
+			});
+
+</script>
+</body>
+</html>

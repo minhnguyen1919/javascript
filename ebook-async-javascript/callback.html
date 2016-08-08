@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sum(a, b, callback){
+      var sum = a + b;
+      console.log('Sum is : ' + sum);
+      if(typeof callback !== 'undefined') {
+        callback(a,b);
+      }
+    }
+
+    // Write callback in main function
+    sum(1,2, function(){
+      alert('Success');
+    });
+
+    //Dùng hàm callback và truyền giá trị vào trong callback
+    sum(1,2, function(a, b){
+      alert('Param is ' + a + '&' + b);
+    });
+
+    //Hoặc định nghĩa 1 callback bên ngoài khi nào dùng thì gọi
+    function myCallback {
+      alert('Hello world');
+    };
+     
+    sum(1,2, myCallback);
+  </script>
+</body>
+</html>

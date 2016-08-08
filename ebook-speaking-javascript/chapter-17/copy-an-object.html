@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+  // Copying an Object----------------------------------------------------------
+  function copyOwnPropertiesFrom(target, source) {
+    Object.getOwnPropertyNames(source) // (1)
+    .forEach(function(propKey) { // (2)
+      var desc = Object.getOwnPropertyDescriptor(source, propKey); // (3)
+      Object.defineProperty(target, propKey, desc); // (4)
+    });
+    return target;
+  };
+
+  function copyObject(orig) {
+    // 1. copy has same prototype as orig
+    var copy = Object.create(Object.getPrototypeOf(orig));
+    // 2. copy has all of orig’s properties
+    copyOwnPropertiesFrom(copy, orig);
+    return copy;
+  }
+
+  var copyObj = copyObject(obj);
+
+  </script>
+</body>
+</html>

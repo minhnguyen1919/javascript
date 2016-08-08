@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../js/lodash.js"></script>
+</head>
+<body>
+  <script>
+    var users = [
+      { 'user': 'barney',  'age': 36 },
+      { 'user': 'fred',    'age': 40 },
+      { 'user': 'pebbles', 'age': 1 }
+    ];
+
+    var youngest2 = _(users)
+      .sortBy('age')
+      .map(function(chr) {
+        return chr.user + ' is ' + chr.age;
+      })
+      .first();
+    // → 'pebbles is 1'
+
+    var youngest = _.chain(users)
+      .sortBy('age')
+      .map(function(chr) {
+        return chr.user + ' is ' + chr.age;
+      })
+      .first()
+      .value();
+    // → 'pebbles is 1'
+  </script>
+</body>
+</html>

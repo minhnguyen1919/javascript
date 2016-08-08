@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+	<title>MVC Angular</title>
+</head>
+<body>
+	<div ng-controller='TextController'>
+		<h2>{{message.someText}}</h2>
+	</div>
+
+	<div ng-controller='OtherTextController'>
+		<h3>{{message.someText}}</h2>
+	</div>
+
+	<script>
+
+		var myAppModule = angular.module('myApp', []);
+
+		myAppModule.controller('TextController',
+			function($scope) {
+				var message = {};
+				message.someText = 'Start MVC - TextController';
+				$scope.message = message;
+			});
+
+		myAppModule.controller('OtherTextController',
+			function($scope) {
+				var message = {};
+				message.someText = 'Other Start MVC - OtherTextController';
+				$scope.message = message;
+			});
+
+
+/*		function TextController($scope) {
+			$scope.message = message;
+		}*/
+	</script>
+</body>
+</html>

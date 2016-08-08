@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+	<div class="speech">
+		<p>Fourscore and seven years ago our fathers brought forth
+			on this continent a new nation, conceived in liberty,
+			and dedicated to the proposition that all men are
+			created equal.
+		</p>
+		<p>Now we are engaged in a great civil war, testing whether
+			that nation, or any nation so conceived and so dedicated,
+			can long endure. We are met on a great battlefield of
+			that war. We have come to dedicate a portion of that
+			field as a final resting-place for those who here gave
+			their lives that the nation might live. It is altogether
+			fitting and proper that we should do this. But, in a
+			larger sense, we cannot dedicate, we cannot consecrate,
+			we cannot hallow, this ground.
+			lorem*100
+		</p>
+		<a href="#" class="more">read more</a>
+		...
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			var $firstPara = $('p').eq(1);
+			$firstPara.hide();
+			$('a.more').click(function(event) {
+				event.preventDefault();
+				if ($firstPara.is(':hidden')) {
+					$firstPara.fadeIn('slow');
+					$(this).text('read less');
+				} else {
+					$firstPara.fadeOut('slow');
+					$(this).text('read more');
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //Avoid Prototype Properties with Initial Values for Instance Properties------
+
+
+  //share default values
+  /**
+  * Anti-pattern: don’t do this
+  *
+  * @param data an array with names
+  */
+  function Names(data) {
+    if (data) {
+      // There is a parameter
+      // => create instance property
+      this.data = data;
+    }
+  }
+  Names.prototype.data = [];
+
+  var n1 = new Names();
+  var n2 = new Names();
+  n1.data.push('jane');
+  n1.data;
+  // ===>  ["jane"]
+  n2.data;
+  // ===>  ["jane"]
+
+
+
+
+  //do not share default values
+  //use this way
+  function Names(data) {
+    this.data = data || [];
+  }
+
+  var n1 = new Names();
+  var n2 = new Names();
+  n1.data.push('jane');
+
+  n1.data;
+  // ===>  ["jane"]
+  n2.data;
+  // ===>  []
+
+
+  </script>
+</body>
+</html>
