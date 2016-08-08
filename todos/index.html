@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Todos Practice</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+	<div class="page-wrap">
+		<div class="container">
+			<header>
+				<h1 class="todo-title">todos</h1>	
+			</header>
+			<section class="todo-wrap">
+				<div class="todos">
+
+					<div class="add-todo">
+						<input id="toggle-all" class="toggle-all" type="checkbox">
+						<input id="input-todo" class="input-todo" type="text" placeholder="What needs to be done?">
+					</div><!-- End .add-todo -->
+
+					<div class="todo-list-wrap">
+						<ul class="todo-list" id="todo-list">
+							<li class="todo-item">
+								<div id="todo-view" class="todo-view">
+									<input class="checkbox" type="checkbox" name="todo">
+									<label>test</label>
+									<a class="delete">×</a>
+								</div>
+								<input id="todo-edit" class="todo-edit" type="text" name="todo-1">
+							</li>
+							<li class="todo-item completed">
+								<div class="todo-view">
+									<input class="checkbox" type="checkbox" checked="checked" name="todo">
+									<label>Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing</label>
+									<a class="delete">×</a>
+								</div>
+								<input class="todo-edit" type="text" name="todo-1">
+							</li>							
+						</ul><!-- End .todo-list -->
+					</div><!-- End .todo-list-wrap -->
+
+					<div class="todo-group">
+						<span id="item-left" class="item-left">10 items left</span>
+						<ul class="list-action">
+							<li><a id="all-todo" class="button btn-active">All</a></li>
+							<li><a id="active-todo" class="button">Active</a></li>
+							<li><a id="completed-todo" class="button">Completed</a></li>
+						</ul>
+						<a id="clear-button" class="clear-button">Clear completed</a>
+					</div><!-- End .todo-group -->
+
+				</div><!-- End .todos -->
+			</section><!-- End .todo-wrap -->
+			<footer>
+				<p>Double-click to edit a todo</p>
+				<p>Written by <a href="#">Addy Osmani</a></p>
+				<p>Part of <a href="#">TodoMVC</a></p>	
+			</footer>
+		</div><!-- End .container -->
+	</div><!-- End .page-wrap -->
+	<script type="text/javascript" src="js/helper.js"></script>
+	<script type="text/javascript" src="js/dom.js"></script>
+	<script type="text/javascript" src="js/event.js"></script>
+	<script type="text/javascript" src="js/todoHelper.js"></script>
+	<script type="text/javascript" src="js/todo.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

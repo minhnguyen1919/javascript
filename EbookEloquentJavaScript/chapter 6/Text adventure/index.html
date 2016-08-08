@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var print = function(text){
+      console.log(text);
+    }
+
+    function forEachIn(object, action) {
+      for (var property in object) {
+        if (Object.prototype.hasOwnProperty.call(object, property))
+          action(property, object[property]);
+      }
+    }
+
+    // The reduce Function
+    function forEach(array, action) {
+      for (var i = 0; i < array.length; i++)
+        action(array[i]);
+    }
+
+    function clone(object) {
+      function OneShotConstructor(){}
+      OneShotConstructor.prototype = object;
+      return new OneShotConstructor();
+    }
+
+    Object.prototype.inherit = function(baseConstructor) {
+      this.prototype = clone(baseConstructor.prototype);
+      this.prototype.constructor = this;
+    };
+    Object.prototype.method = function(name, func) {
+      this.prototype[name] = func;
+    };
+    Object.prototype.create = function() {
+      var object = clone(this);
+      if (object.construct != undefined)
+        object.construct.apply(object, arguments);
+      return object;
+    };
+
+    Object.prototype.extend = function(properties) {
+      var result = clone(this);
+
+      forEachIn(properties, function(name, value) {
+        result[name] = value;
+      });
+      return result;
+    };
+
+
+
+
+
+
+
+    // Item consctructor
+    var Item = {
+      construct: function(name) {
+        this.name = name;
+      },
+      inspect: function() {
+        print("it is "+ this.name+ ".");
+      },
+      kick: function() {
+        print("klunk!");
+      },
+      take: function() {
+        print("you cannot lift "+ this.name+ ".");
+      }
+    };
+    var lantern = Item.create("the brass lantern");
+    lantern.kick();
+
+
+    // DetailedItem consctructor extend from Item
+    var DetailedItem = Item.extend({
+      construct: function(name, details) {
+        Item.construct.call(this, name);
+        this.details = details;
+      },
+      inspect: function() {
+        print("you see "+ this.name+ ", "+ this.details+ ".");
+      }
+    });
+    var giantSloth = DetailedItem.create("the giant sloth","it is quietly hanging from a tree,munching leaves");
+    giantSloth.inspect();
+
+
+    // SmallItem consctructor extend from Item
+    var SmallItem = Item.extend({
+      kick: function() {
+        print(this.name + " flies across the room.");
+      },
+      take: function() {
+        // (imagine some code that moves the item to your pocket here)
+        print("you take " + this.name + ".");
+      }
+    });
+    var pencil = SmallItem.create("the red pencil");
+    pencil.take();
+
+
+    Object.prototype.isA = function(prototype) {
+      function DummyConstructor() {}
+      DummyConstructor.prototype = prototype;
+      return this instanceof DummyConstructor;
+    };
+    print(pencil.isA(Item));
+    print(pencil.isA(DetailedItem));
+
+
+
+
+
+
+
+
+    // Multi inheritance
+    // If two object has the same method name it will be error
+    function mixInto(object, mixIn) {
+      forEachIn(mixIn, function(name, value) {
+        object[name] = value;
+      });
+    };
+    var SmallDetailedItem = clone(DetailedItem);
+    mixInto(SmallDetailedItem, SmallItem);
+    var deadMouse = SmallDetailedItem.create("Fred the mouse", "he is dead");
+    print(deadMouse.inspect());
+    print(deadMouse.kick());
+
+
+
+
+
+    var Monster = Item.extend({
+      construct: function(name, dangerous) {
+        Item.construct.call(this, name);
+        this.dangerous = dangerous;
+      },
+      kick: function() {
+        if (this.dangerous)
+          print(this.name, " bites your head off.");
+        else
+          print(this.name, " squeaks and runs away.");
+      }
+    });
+    var DetailedMonster = DetailedItem.extend({
+      construct: function(name, description, dangerous) {
+        DetailedItem.construct.call(this, name, description);
+        Monster.construct.call(this, name, dangerous);
+      },
+      kick: Monster.kick
+    });
+    var giantSloth = DetailedMonster.create(
+      "the giant sloth",
+      "it is quietly hanging from a tree, munching leaves",
+      true);
+    print(giantSloth.kick());
+
+
+
+
+  </script>
+</body>
+</html>

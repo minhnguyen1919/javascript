@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function requestObject() {
+      if (window.XMLHttpRequest)
+        return new XMLHttpRequest();
+      else if (window.ActiveXObject)
+        return new ActiveXObject("Msxml2.XMLHTTP");
+      else
+        throw new Error("Could not create HTTP request object.");
+    }
+
+    var request = requestObject();
+
+    // request synchronous
+    request.open("GET", "files/data.txt", false);
+    request.send(null);
+
+    // request asynchronous
+    request.open("GET", "files/data.txt", true);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4)
+        console.log(request.status + " " + request.statusText);
+    };
+    request.send(null);
+
+
+    // get xml document and generate to object
+    request.open("GET", "files/fruit.xml", false);
+    request.send(null);
+    console.log(request.responseXML.documentElement.childNodes.length);
+
+
+    // get json document and generate to object
+    request.open("GET", "files/fruit.json", true);
+    request.onreadystatechange = function() {
+      if (request.readyState == 4) {
+        var data = eval("(" + request.responseText + ")");
+        console.log(data["lemon"]);
+      }
+    };
+    request.send(null);
+
+
+    // a method to create and send request
+    function simpleHttpRequest(url, success, failure) {
+      var request = requestObject();
+      request.open("GET", url, true);
+      request.onreadystatechange = function() {
+        if (request.readyState == 4) {
+          if (request.status == 200 || !failure)
+            success(request.responseText);
+          else if (failure)
+            failure(request.status, request.statusText);
+        }
+      };
+      request.send(null);
+    }
+
+    
+
+
+  </script>
+</body>
+</html>

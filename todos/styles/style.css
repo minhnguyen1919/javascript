@@ -1,0 +1,323 @@
+@charset "UTF-8";
+/*******************variables*****************/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  font-weight: inherit;
+  font-style: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  border: 0;
+  outline: 0;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+body {
+  line-height: 1;
+  color: #4d4d4d;
+  background: #f1f1f1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+}
+
+blockquote,
+q {
+  quotes: '' '';
+}
+
+.container {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.todo-title {
+  font-size: 100px;
+  text-align: center;
+  color: #ead7d7;
+}
+
+.todo-wrap {
+  margin: 12px 0 0 0;
+}
+
+.todos {
+  width: inherit;
+  background-color: #fff;
+}
+
+.add-todo {
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.add-todo .toggle-all {
+  position: absolute;
+  top: 5px;
+  left: -11px;
+  width: 65px;
+  height: 50px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  text-align: center;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.add-todo .toggle-all:before {
+  font-size: 22px;
+  display: inline-block;
+  padding: 10px 27px 10px 27px;
+  content: '❯';
+  color: #e6e6e6;
+}
+.add-todo .toggle-all:checked:before {
+  color: #737373;
+}
+.add-todo .input-todo {
+  padding: 25px 15px 20px 60px;
+}
+
+.input-todo,
+label,
+.todo-edit {
+  font-size: 24px;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 50px 20px 60px;
+  border: none;
+  -ms-box-sizing: border-box;
+}
+
+.input-todo {
+  height: 58px;
+}
+
+label {
+  min-height: 58px;
+}
+
+.todo-edit {
+  height: 56px;
+  border: 1px solid #999;
+  margin: 0 0 0 48px;
+  padding: 20px 50px 20px 10px;
+  width: 500px;
+}
+
+.checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 65px;
+  text-align: center;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.checkbox:after {
+  position: absolute;
+  top: 12px;
+  left: 4px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  content: '';
+  border: 1px solid #efefef;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.checkbox:checked:after {
+  border: 1px solid #c7e0db;
+  background: url(../images/check-icon.png) no-repeat center center;
+}
+
+.todo-list-wrap {
+  margin: -1px 0 0 0;
+}
+
+.todo-list .todo-item {
+  border-bottom: 1px solid #ededed;
+}
+.todo-list .todo-item .todo-view {
+  position: relative;
+}
+
+.delete {
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin: 10px 0;
+  cursor: default;
+  text-align: center;
+  color: #cc9a9a;
+}
+
+.todo-edit {
+  display: none;
+}
+
+.todo-group {
+  font-size: 14px;
+  font-weight: 300;
+  position: relative;
+  overflow: hidden;
+  padding: 12px 15px;
+}
+.todo-group .item-left {
+  float: left;
+}
+.todo-group .list-action {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+  text-align: center;
+}
+.todo-group .list-action li {
+  display: inline-block;
+}
+.todo-group .clear-button {
+  position: relative;
+  float: right;
+}
+.todo-group .clear-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button {
+  line-height: 22px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 22px;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  letter-spacing: 0;
+  color: #777;
+  border: 1px solid #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.btn-active {
+  border: 1px solid #efd5d5;
+}
+
+.completed label {
+  text-decoration: line-through;
+  color: #d9d9d9;
+}
+
+footer {
+  padding: 20px 0;
+  font-size: 10px;
+  color: #bfbfbf;
+  text-align: center;
+  margin: 36px 0 0 0;
+}
+footer p {
+  margin: 10px 0;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,110 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td
+{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    font-weight: inherit;
+    font-style: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    border: 0;
+    outline: 0;
+}
+/* remember to define focus styles! */
+:focus
+{
+    outline: 0;
+}
+body
+{
+    line-height: 1;
+    color: $global-text-color;
+    background: $main-bg-color;
+}
+ol,
+ul
+{
+    list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table
+{
+    border-spacing: 0;
+    border-collapse: separate;
+}
+caption,
+th,
+td
+{
+    font-weight: normal;
+    text-align: left;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after
+{
+    content: '';
+}
+blockquote,
+q
+{
+    quotes: '' '';
+}

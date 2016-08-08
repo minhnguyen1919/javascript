@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="js/chapter5-practice.js"></script>
+  <script>
+    // function forEach(texts, action){
+    //   for(var i=0; i<texts.length ; i++){
+    //     action(texts[i]);
+    //   }
+    // }
+
+    // var op = {
+    //   "+": function(a, b){return a + b;},
+    //   "==": function(a, b){return a == b;},
+    //   "===": function(a, b){return a === b;},
+    //   "!": function(a){return !a;}
+    //   /* and so on */
+    // };
+
+    // function reduce(combine, base, array) {
+    //   forEach(array, function (element) {
+    //     base = combine(base, element);
+    //   });
+    //   return base;
+    // }
+    // function add(a, b) {
+    //   return a + b;
+    // }
+    // function sum(numbers) {
+    //   return reduce(add, 0, numbers);
+    // }
+
+    // reduce(op["+"], 0, [1, 2, 3, 4, 5])
+
+
+    // function partial(f) {
+    //   var args = Array.prototype.slice.call(arguments, 1)
+    //   return function() {
+    //     var remainingArgs = Array.prototype.slice.call(arguments)
+    //     return f.apply(null, args.concat(remainingArgs))
+    //   }
+    // }
+
+    // function tip(percentage, check) {
+    //   return check * percentage
+    // }
+
+    // [120, 90, 180].map(partial(tip, 0.2))
+
+  </script>
+</head>
+<body>
+  <div id="father"></div>
+</body>
+</html>

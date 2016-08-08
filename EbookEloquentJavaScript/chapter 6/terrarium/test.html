@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function bind(func, object) {
+      return function(){
+        return func.apply(object, arguments);
+      };
+    }
+    var x = ["1", "2", "3"];
+    var pushX = bind(x.push, x);
+    pushX("A");
+    pushX("B");
+    x;
+
+  </script>
+</body>
+</html>

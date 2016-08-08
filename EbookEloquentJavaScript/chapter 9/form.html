@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <form name="userinfo" method="get" action="/info.html" dataone="one one">
+    <p>Please give us your information, so that we can send
+      you spam.</p>
+      <p>Name: <input type="text" name="name"></p>
+      <p>Email: <input type="text" name="email"></p>
+      <p>Sex: <select name="sex">
+        <option>Won't say</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select></p>
+      <p><input name="send" type="button" value="Send!"></p>
+    </form>
+
+    <script>
+      var spamForm = document.forms.userinfo;
+
+      spamForm.elements.name.focus();
+
+      function validForm(form){
+        return form.elements.name.value != "" &&
+              /^.+@.+\.\w{2,4}$/.test(form.elements.email.value);
+      }
+
+      spamForm.elements.send.onclick = function(){
+        if(validForm(spamForm)){
+          spamForm.submit();
+        }
+        else{
+          alert("Please input name and correct email");
+        }
+      }
+    </script>
+  </body>
+  </html>
+
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript" src="js/dictionary.js"></script>
+	<script type="text/javascript" src="js/bugs.js"></script>
+	<script type="text/javascript" src="js/lichen.js"></script>
+	<script type="text/javascript" src="js/lichenEater.js"></script>
+	<script type="text/javascript" src="js/grid.js"></script>
+	<script type="text/javascript" src="js/point.js"></script>
+	<script type="text/javascript" src="js/terrarium.js"></script>
+	<script type="text/javascript" src="js/lifeLikeTerrarium.js"></script>
+	<script type="text/javascript" src="js/helper.js"></script>
+	<script type="text/javascript">
+
+		var directions = new Dictionary(
+			{"n": new Point( 0, -1),
+			"ne": new Point( 1, -1),
+			"e": new Point( 1, 0),
+			"se": new Point( 1, 1),
+			"s": new Point( 0, 1),
+			"sw": new Point(-1, 1),
+			"w": new Point(-1, 0),
+			"nw": new Point(-1, -1)});
+
+
+
+		var thePlan =
+		["############################",
+		"#         #   #    o      ##",
+		"#              %           #",
+		"#       %  #####           #",
+		"##         #  #   ##       #",
+		"###    ~     ##    #       #",
+		"#          ###    #        #",
+		"#  ####        %           #",
+		"#  ##     ~  o      ~      #",
+		"#  o #         o       ### #",
+		"#    #          %          #",
+		"############################"];
+
+
+		// var terrarium = new Terrarium(thePlan);
+		// // terrarium.step();
+		// // terrarium.each(console.log);
+		// alert(terrarium);
+		// console.log(terrarium);
+
+
+		var moodyCave =
+		["############################",
+		"#                     ######",
+		"#      ***              **##",
+		"#     *##**       **   c *##",
+		"#      ***      c ##**    *#",
+		"#         c       ##***   *#",
+		"#                 ##**    *#",
+		"#   c         #*          *#",
+		"#*            #**    c    *#",
+		"#***          ##**  c    **#",
+		"#*****       ###***     *###",
+		"############################"];
+
+		var terrarium = new LifeLikeTerrarium(moodyCave);
+		for (var i = 0; i < 10; i++) {
+			for (var i = 0; i < 20; i++){
+				terrarium.step();
+				console.log(terrarium.toString());
+			}
+		}
+
+
+	</script>
+</body>
+</html>

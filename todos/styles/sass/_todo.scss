@@ -1,0 +1,223 @@
+.todo-wrap
+{
+    margin: 12px 0 0 0;
+}
+
+.todos
+{
+    width: inherit;
+    background-color: $white;
+}
+
+.add-todo
+{
+    position: relative;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $todo-add-border-bottom-color;
+    .toggle-all
+    {
+        position: absolute;
+        top: 5px;
+        left: -11px;
+        width: 65px;
+        height: 50px;
+        -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+                transform: rotate(90deg);
+        text-align: center;
+
+                appearance: none;
+           -moz-appearance: none;
+        -webkit-appearance: none;
+        &:before
+        {
+            font-size: 22px;
+            display: inline-block;
+            padding: 10px 27px 10px 27px;
+            content: '❯';
+            color: $todo-add-toggle-all-color;
+        }
+        &:checked:before{
+            color: $todo-add-toggle-all-checked-color;
+        }
+    }
+    .input-todo
+    {
+        padding: 25px 15px 20px 60px;
+    }
+}
+
+.input-todo,
+label,
+.todo-edit
+{
+    font-size: 24px;
+    display: block;
+        box-sizing: border-box;
+    width: 100%;
+    padding: 20px 50px 20px 60px;
+    border: none;
+
+    -ms-box-sizing: border-box;
+}
+
+.input-todo
+{
+    height: 58px;
+}
+
+label
+{
+    min-height: 58px;
+}
+
+.todo-edit{
+    height: 56px;
+    border: 1px solid $todo-item-textbox-border-color;
+    margin: 0 0 0 48px;
+    padding: 20px 50px 20px 10px;
+    width: 500px;
+}
+
+.checkbox
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 65px;
+    text-align: center;
+
+            appearance: none;
+       -moz-appearance: none;
+    -webkit-appearance: none;
+    &:after
+    {
+        position: absolute;
+        top: 12px;
+        left: 4px;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        content: '';
+        border: 1px solid $todo-item-checkbox-border-color;
+        -webkit-border-radius: 30px;
+           -moz-border-radius: 30px;
+                border-radius: 30px;
+    }
+    &:checked:after
+    {
+        border: 1px solid $todo-item-checkbox-checked-border-color;
+        background: url(../images/check-icon.png) no-repeat center center;
+    }
+}
+
+.todo-list-wrap
+{
+    margin: -1px 0 0 0;
+}
+
+.todo-list
+{
+    .todo-item
+    {
+        border-bottom: 1px solid $todo-item-border-bottom-color;
+        .todo-view
+        {
+            position: relative;
+        }
+    }
+}
+
+.delete
+{
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    margin: 10px 0;
+    cursor: default;
+    text-align: center;
+    color: $todo-item-delete-button-color;
+}
+
+.todo-edit
+{
+    display: none;
+}
+
+
+
+.todo-group
+{
+    font-size: 14px;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+    padding: 12px 15px;
+    .item-left
+    {
+        float: left;
+    }
+    .list-action
+    {
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        text-align: center;
+        li
+        {
+            display: inline-block;
+        }
+    }
+    .clear-button
+    {
+        position: relative;
+        float: right;
+        &:hover
+        {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
+
+.button
+{
+    line-height: 22px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 22px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: 0;
+    color: $todo-filter-button-text-color;
+    border: 1px solid $white;
+    -webkit-border-radius: $global-radius;
+       -moz-border-radius: $global-radius;
+            border-radius: $global-radius;
+}
+
+.btn-active{
+    border: 1px solid $todo-filter-button-border-hover-color;
+}
+
+.completed
+{
+    label
+    {
+        text-decoration: line-through;
+        color: $todo-item-completed-label-text-color;
+    }
+}
